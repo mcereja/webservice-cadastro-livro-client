@@ -13,20 +13,26 @@ public class AppInsereLivro {
 
 	public static void main(String[] args) throws ParseException {
 		
-		LivrosServiceClient cliente = new LivrosServiceClient("http://localhost:8080", "algaworks", "s3nh4");
+		int contaLivro=1;
+		LivrosServiceClient cliente = 
+				new LivrosServiceClient("http://localhost:8080", "algaworks", "s3nh4");
 		
-		Livro livro = new Livro();
-		livro.setNome("Git passo-a-passo");
-		livro.setEditora("AlgaWorks");
-		
-		SimpleDateFormat publicacao = new SimpleDateFormat("dd/MM/yyyy");
-		livro.setDataPublicacao( publicacao.parse("01/01/2016") );
-		
-		livro.setResumo("este livro aborda tecnicas de desenvolvimento de APIs.");
-		
-		String localizacao = cliente.salvar(livro);
-		
-		System.out.println("URI do livro salvo: " + localizacao);
+		do {
+			Livro livro = new Livro();
+			livro.setNome(contaLivro + " Nome Livro " + contaLivro);
+			livro.setEditora(contaLivro + "Editora Livro " + contaLivro);
+			
+			SimpleDateFormat publicacao = new SimpleDateFormat("dd/MM/yyyy");
+			livro.setDataPublicacao( publicacao.parse("01/10/2021") );
+			
+			livro.setResumo(contaLivro + " Resumo Livro " + contaLivro);
+			
+			String localizacao = cliente.salvar(livro);
+			
+			System.out.println("URI do livro salvo: " + localizacao);
+			
+			contaLivro++;
+		} while ( contaLivro <= 3 );
 		
 	}
 	

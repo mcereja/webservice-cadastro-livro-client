@@ -15,7 +15,7 @@ public static void main(String[] args) throws ParseException {
 		List<Livro> listaLivros = cliente.listar();
 		
 		for(Livro livro : listaLivros) {
-			System.out.println("Livro: " + livro.getNome());
+			System.out.println("Livro: " + livro.getId() + " - " +  livro.getNome());
 		}
 		
 	}

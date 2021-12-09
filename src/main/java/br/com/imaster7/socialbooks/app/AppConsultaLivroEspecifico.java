@@ -13,7 +13,7 @@ public static void main(String[] args) throws ParseException {
 		
 		//obs. como arg do metodo buscar, se passa o retorno da var localização do AppInsereLivro
 		//   nesse caso passei fixo
-		Livro livroBuscado = cliente.buscar("http://localhost:8080/livros/3");
+		Livro livroBuscado = cliente.buscar("http://localhost:8080/livros/1");
 		
 		System.out.println("Livro buscado: " + livroBuscado.getNome());
 		
